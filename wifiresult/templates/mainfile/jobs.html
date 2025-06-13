@@ -474,7 +474,7 @@
                     <div class="result-card">
                        
                         <div class="result-content">
-                            {% for job in jobs %} 
+                            {% for job in jobs reversed %} 
                             <h3 class="result-title"> <a href="{{job.slug}}"> <li class="fs-6">  {{ job.title }}</li>
                                  
                              </a>   &nbsp;&nbsp;  <span class="result-date">{{job.updated_at}}</span></h3><hr>

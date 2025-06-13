@@ -2,42 +2,64 @@
 {% load static %}
 
 {% block seo %}
-    <title>Results : Results 2025  Sarkari Result , Latest Online Form | Result 2025 - wifiresult.xyz<</title> 
-    <link rel="canonical" href="https://wifiresult.xyz/{{result.slug}}"/>
-  <meta name="description" content="{{result.meta_description}}">
-<meta name="keywords" content="{{result.meta_keywords}}">
+    <title>{{ result.title }}-wifiresult.xyz</title> 
+<link rel="canonical" href="https://wifiresult.xyz/results/{{result.slug}}"/>
+<meta name="description" content="{{result.description}}">
+<meta name="keywords" content="{{result.keywords}}">
 <meta property="og:title" content="{{ result.title }}" />
-<meta name="og:description" content="{{ result.meta_description}}"/>
-
-{% if result.og_image %}
-<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ result.og_image.url }}">
+<meta name="og:description" content="{{ result.description}}"/>
+{% if result.image %}
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ result.image.url }}">
 {% endif %}
-{% if result.og_image_alt %}
-<meta property="og:image:alt" content="{{ result.og_image_alt }}" />
+{% if result.image_alt %}
+<meta property="og:image:alt" content="{{ result.image_alt }}" />
 {% endif %}
- 
 <meta property="og:image:type" content="image/jpeg" />
 <meta name="twitter:card" content="summary_large_image" />
-{% if result.og_image %}
-<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{{ result.og_image.url }}" />
+{% if result.image %}
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{{ result.image.url }}" />
 {% endif %}
 <meta name="robots" content="max-image-preview:large">
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="{{ result.updated_at|date:'c' }}">
 <meta property="article:modified_time" content="{{ result.updated_at|date:'c' }}">
-<meta property="og:url" content="https://wifiresult.xyz/{{result.slug}}"/>
-
+<meta property="og:url" content="https://wifiresult.xyz/results/{{result.slug}}"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'css/base.css' %}">
-
-   {% if result.schema %}
-    <script type="application/ld+json">
-    {{ result.schema|safe }}
-    </script>
-    {% endif %}
-
-      <link rel=" shortcut icon" type="image/jpg" href="{% static 'images/favicon.jpg' %}">
+<link rel=" shortcut icon" type="image/jpg" href="{% static 'images/favicon.jpg' %}">
+{% if result.image %}  
+<script type="application/ld+json">
+      {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://wifiresult.xyz/results/{{result.slug}}"
+          },
+          "headline": "{{ result.title }}",
+          "description": "{{result.description}}",
+          
+          "image": "{{ request.scheme }}://{{ request.get_host }}{{ result.image.url }}", 
+          
+          "author": {
+            "@type": "Organization",
+            "name": "Sarkari Result",
+            "url": "https://wifiresult.xyz/"
+          },  
+          "publisher": {
+              "@type": "Organization",
+              "name": "wifiresult.xyz",
+              "logo": {
+              "@type": "ImageObject",
+              "url": "{{ request.scheme }}://{{ request.get_host }}/static/images/logo.png"
+              }
+          },
+          "datePublished": "{{ result.updated_at|date:'c' }}",
+          "dateModified": "{{ result.updated_at|date:'c' }}"
+      }
+  </script>    
+{% endif %}
 
 {% endblock seo %}
 
@@ -397,18 +419,19 @@
     <!-- Main content -->
     <div class="main-between">
         <br>
-        {% if result.apply_date %}
+        {% if result.post_date %}
         <div class="bg-warning-subtle d-inline p-2 ms-1 fs-4 text-warning-emphasis">
-            <i class="fas fa-calendar-alt"></i> Apply Before: {{result.apply_date}}
+            <i class="fas fa-calendar-alt"></i> Apply Before: {{result.post_date}}
         </div>
         {% endif %}
         
         <br><br>
         
-        <h4 class="fw-bold text-primary text-center fs-4">{{result.vacancy_title}}</h4>
+        <h4 class="fw-bold text-primary text-center fs-4">{{result.title}}</h4>
         <br> 
-        
-        <h2>{{result.vacancy_name|safe}}</h2>
+        {% if result.vacancy_info %}
+        <h2>{{result.vacancy_info|safe}}</h2>
+        {% endif %}
         <br>
         
         <div class="bg-primary text-white text-center fw-bold fs-3 text-center-mobile">
@@ -463,104 +486,86 @@
               <div class="text-primary ms-4 fs-3">● Final Result : <span class="text-dark fw-bold"> {{result.final_result_available}}   </span></div>
             {% endif %}
  
-        
+              {% if result.applecation_fee %}
         <div class="text-dark fs-2 bg-primary text-white fw-bold text-center text-center-mobile mb-3 mt-3">
-            <i class="fas fa-university"></i> Application Fee
-
-
-        </div>
-        
+            <i class="fas fa-university"></i> Application Fee</div>
         {{result.applecation_fee|safe}}
+        {% endif %}
         
         <div class="text-primary ms-3 fs-3 mt-4">
             <span class="text-danger fs-3">Note:</span> 
             Candidates can deposit the exam fee through bank challan or online payment mode
         </div>
         <br>
-        
+             {% if result.vacancy_details %}
         <div class="text-success fs-3 mb-3 text-center bg-primary text-white fw-bold text-center-mobile">
-            <i class="fas fa-file-alt text-white"></i> Vacancy Details
-        </div>
-        
+            <i class="fas fa-file-alt text-white"></i> Vacancy Details </div>
         {{result.vacancy_details|safe}}
+        {% endif %}
         <br>
-        
+        {% if result.eligibility_criteria %}
         <div class="text-center text-white bg-primary fs-3 mb-3 fw-bold text-center-mobile">
-            <i class="fas fa-user-graduate"></i> Eligibility Criteria
-        </div>
-        
+            <i class="fas fa-user-graduate"></i> Eligibility Criteria</div>
         {{result.eligibility_criteria|safe}}
+        {% endif %}
         <br><br>
-        
+        {% if result.selection_process %}
         <div class="fs-3 text-center bg-primary text-white fw-bold text-center-mobile mb-3">
- <i class="fas fa-clipboard-check me-2"></i> Selection Process
-        </div>
-        
+ <i class="fas fa-clipboard-check me-2"></i> Selection Process</div>
         {{result.selection_process|safe}}
+        {% endif %}
         
         <div class="text-danger h3 ms-3">
             <span>Note:</span> The selection of the candidate will be based on all Three exams.
         </div>
         <br>
-        
+        {% if result.important_information %}
         <div class="fs-3 mb-3 bg-primary text-center text-white fw-bold text-center-mobile">
-            Important facts to know before applying online form
-        </div>
-        
+            Important facts to know before applying online form</div>
         {{result.important_information|safe}}
+        {% endif %}
         <br>
-        
-        <div class="bg-primary text-white fs-3 text-center text-center-mobile mb-3">
-            How to Apply online form
-        </div>
-        
+        {% if result.apply_online_link %}
+        <div class="bg-primary text-white fs-3 text-center text-center-mobile mb-3">How to Apply online form</div>
         {{result.how_to_apply|safe}}
+        {% endif %}
         <br>
         
         <div class="text-center fs-3 fw-bold bg-success-subtle text-danger-emphasis text-center-mobile p3">
-            <i class="fas fa-link"></i> Useful Important Links
-        </div>
-        
-        <!-- Important links - stacked vertically on mobile -->
-        <div class="vertical-stack">
+            <i class="fas fa-link"></i> Useful Important Links</div>
+         {% if result.apply_online_link %}
             <a href="{{result.apply_online_link}}" class="text-white full-width-mobile">
                 <div class="text-text-white mt-3 fs-3 text-center bg-success p-2 fw-bold">
                     <i class="fas fa-edit"></i> Apply online
-                </div>
-            </a>
-            
+                </div></a>{% endif %}
+
+            {% if result.admitcard_link %}
             <a href="{{result.admitcard_link}}" class="text-white full-width-mobile">
                 <div class="text-text-white mt-3 fs-3 text-center bg-primary p-2 fw-bold">
                     <i class="fas fa-id-card"></i> Admit Card
-                </div>
-            </a>
-            
-         <a href="{{result.admitcard_link}}" class="text-white"><div class="text-text-white mt-3 fs-3 text-center bg-primary p-2 fw-bold">   <i class="fas fa-id-card"></i>  &nbsp;&nbsp;Admit Card  </div>
- </a>
+                </div></a> {% endif %}
+ {% if result.anserkeyI_link %}
+  <a href="{{result.answerkeyI_link}}" class="text-white"><div class="text-text-white mt-3 fs-3 text-center bg-secondary p-2 fw-bold">    <i class="fas fa-key"></i>  &nbsp;&nbsp;Answer Key Phase I </div></a>{% endif %}
 
-  <a href="{{result.answerkeyI_link}}" class="text-white"><div class="text-text-white mt-3 fs-3 text-center bg-secondary p-2 fw-bold">    <i class="fas fa-key"></i>  &nbsp;&nbsp;Answer Key Phase I </div>
- </a>
+ {% if result.anserkeyII_link %}
+   <a href="{{result.answerkeyII_link}}" class="text-white"><div class="text-text-white mt-3 fs-3 text-center bg-primary p-2 fw-bold">    <i class="fas fa-key"></i>  &nbsp;&nbsp;Answer Key Phase II </div></a>{% endif %}
 
-   <a href="{{result.answerkeyII_link}}" class="text-white"><div class="text-text-white mt-3 fs-3 text-center bg-primary p-2 fw-bold">    <i class="fas fa-key"></i>  &nbsp;&nbsp;Answer Key Phase II </div>
- </a>
+  {% if result.result_link %}
+  <a href="{{result.result_link}}" class="text-white"><div class="text-text-white mt-3 fs-3 text-center bg-secondary p-2 fw-bold">    <i class="fas fa-key"></i>  &nbsp;&nbsp;Result </div></a>{% endif %}
 
-  <a href="{{result.result_link}}" class="text-white"><div class="text-text-white mt-3 fs-3 text-center bg-secondary p-2 fw-bold">    <i class="fas fa-key"></i>  &nbsp;&nbsp;Result </div>
- </a>
+ {% if result.resultI_link %}
+  <a href="{{result.resultI_link}}" class="text-white"><div class="text-text-white mt-3 fs-3 text-center bg-success p-2 fw-bold">    <i class="fas fa-key"></i>  &nbsp;&nbsp;Result Phase I </div></a>{% endif %}
 
-  <a href="{{result.resultI_link}}" class="text-white"><div class="text-text-white mt-3 fs-3 text-center bg-success p-2 fw-bold">    <i class="fas fa-key"></i>  &nbsp;&nbsp;Result Phase I </div>
- </a>
+{% if result.resultII_link %}
+   <a href="{{result.resultII_link}}" class="text-white"><div class="text-text-white mt-3 fs-3 text-center bg-secondary p-2 fw-bold">    <i class="fas fa-trophy"></i>  &nbsp;&nbsp;Result Phase II</div></a>{% endif %}
 
-   <a href="{{result.resultII_link}}" class="text-white"><div class="text-text-white mt-3 fs-3 text-center bg-secondary p-2 fw-bold">    <i class="fas fa-trophy"></i>  &nbsp;&nbsp;Result Phase II</div>
- </a>
+{% if result.result_final_link %}
+   <a href="{{result.result_final_link}}" class="text-white"><div class="text-text-white mt-3 fs-3 text-center bg-primary p-2 fw-bold">  <i class="fas fa-trophy"></i>  &nbsp;&nbsp; Final Result</div></a>{% endif %}
 
-   <a href="{{result.result_final_link}}" class="text-white"><div class="text-text-white mt-3 fs-3 text-center bg-primary p-2 fw-bold">  <i class="fas fa-trophy"></i>  &nbsp;&nbsp; Final Result</div>
- </a>
-
-  <a href="{{result.notification_link}}" class="text-white"><div class="text-text-white mt-3 fs-3 text-center bg-success p-2 fw-bold">   <i class="fas fa-download"></i>  &nbsp;&nbsp;Notification Download </div>
- </a>
-
-  <a href="{{result.officialwebsite_link}}" class="text-white"><div class="text-text-white mt-3 fs-3 text-center p-2 fw-bold"  style="background-color: #4096EE;">   <i class="fas fa-file-pdf"></i>  &nbsp;&nbsp; Official Website </div>
- </a>
+{% if result.notification_link %}
+  <a href="{{result.notification_link}}" class="text-white"><div class="text-text-white mt-3 fs-3 text-center bg-success p-2 fw-bold">   <i class="fas fa-download"></i>  &nbsp;&nbsp;Notification Download </div></a>{% endif %}
+{% if result.officialwebsite_link %}
+  <a href="{{result.officialwebsite_link}}" class="text-white"><div class="text-text-white mt-3 fs-3 text-center p-2 fw-bold"  style="background-color: #4096EE;">   <i class="fas fa-file-pdf"></i>  &nbsp;&nbsp; Official Website </div></a>{% endif %}
 
         </div>
         

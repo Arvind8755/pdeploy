@@ -9,21 +9,17 @@ from django.urls import reverse
 # Create your models here.
 
 class Result(models.Model):
-    title = models.CharField(max_length=100, blank=True, null=True)
+    title = models.CharField(max_length=400, blank=True, null=True)
 
-    meta_description = models.TextField(max_length=300, blank=True, null=True)
-    meta_keywords = models.TextField(max_length=300,blank=True, null=True)
+    description = models.TextField(max_length=300, blank=True, null=True)
+    keywords = models.TextField(max_length=300,blank=True, null=True)
 
-    schema = models.TextField(blank=True, null=True)
-    og_image = models.ImageField(upload_to='og_images/', blank=True, null=True, help_text="Open Graph image for social sharing")
-    og_image_alt = models.CharField(max_length=255,blank=True,null=True,help_text="Alternate text for OG Image (used in og:image:alt)")
+    image = models.ImageField(upload_to='og_images/', blank=True, null=True, help_text="Open Graph image for social sharing")
+    image_alt = models.CharField(max_length=255,blank=True,null=True,help_text="Alternate text for OG Image (used in og:image:alt)")
     updated_at = models.DateTimeField(auto_now=True)  # automatic on update
 
-
-    apply_date = models.CharField(max_length=100,blank=True, null=True)
-    vacancy_title = models.TextField(max_length=250, blank=True, null=True) 
-
-    vacancy_name = RichTextField(blank=True, null=True)
+    post_date = models.CharField(max_length=100,blank=True, null=True)
+    vacancy_info = RichTextField(blank=True, null=True)
 
     online_application_date= models.CharField(max_length=100,blank=True, null=True)
     online_last_date = models.CharField(max_length=100,blank=True, null=True)
@@ -99,28 +95,29 @@ class Answerkey(models.Model):
         return self.title
     
 class Job(models.Model):
-    title = models.CharField(max_length=100, blank=True, null=True)
+    title = models.CharField(max_length=400, blank=True, null=True)
 
-    meta_description = models.TextField(max_length=300, blank=True, null=True)
-    meta_keywords = models.TextField(max_length=300,blank=True, null=True)
+    description = models.TextField(max_length=300, blank=True, null=True)
+    keywords = models.TextField(max_length=300,blank=True, null=True)
 
-    schema = models.TextField(blank=True, null=True)
-    og_image = models.ImageField(upload_to='og_images/', blank=True, null=True, help_text="Open Graph image for social sharing")
-    og_image_alt = models.CharField(max_length=255,blank=True,null=True,help_text="Alternate text for OG Image (used in og:image:alt)")
+    image = models.ImageField(upload_to='og_images/', blank=True, null=True, help_text="Open Graph image for social sharing")
+    image_alt = models.CharField(max_length=255,blank=True,null=True,help_text="Alternate text for OG Image (used in og:image:alt)")
     updated_at = models.DateTimeField(auto_now=True)  # automatic on update
 
 
-    apply_date = models.CharField(max_length=100,blank=True, null=True)
-    vacancy_title = models.TextField(max_length=250, blank=True, null=True) 
+    post_date = models.CharField(max_length=100,blank=True, null=True)
 
-    vacancy_name = RichTextField(blank=True, null=True)
+    vacancy_info = RichTextField(blank=True, null=True)
 
-    online_application_date= models.CharField(max_length=100,blank=True, null=True)
+    online_application_date= models.CharField(max_length=400,blank=True, null=True)
     online_last_date = models.CharField(max_length=100,blank=True, null=True)
     receipt_of_application = models.CharField(max_length=100,blank=True, null=True)
     last_date_fee = models.CharField(max_length=100,blank=True, null=True)
     correction_date = models.CharField(max_length=100,blank=True, null=True)
     exam_date = models.CharField(max_length=100,blank=True, null=True)
+    exam_date1 = models.CharField(max_length=100,blank=True, null=True)
+    exam_date2 = models.CharField(max_length=100,blank=True, null=True)
+    exam_date3 = models.CharField(max_length=100,blank=True, null=True)
     admit_card_available = models.CharField(max_length=100,blank=True, null=True)
     answerkey_available_date = models.CharField(max_length=100,blank=True, null=True)
     result_available = models.CharField(max_length=100,blank=True, null=True)

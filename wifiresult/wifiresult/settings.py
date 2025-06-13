@@ -28,9 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-_2b24xqzeleuic^1$=$jt7-@3om5@lk-9v!n-2165=jh@l9&j2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =  True
-# DEBUG = False
-ALLOWED_HOSTS = ['54.175.105.116','localhost', '127.0.0.1','wifiresult.xyz','www.wifiresult.xyz']
+# DEBUG =  True
+DEBUG = False
+ALLOWED_HOSTS = ['50.17.8.251','localhost', '127.0.0.1','wifiresult.xyz','www.wifiresult.xyz']
 # ALLOWED_HOSTS = ['192.168.193.253']
 
 

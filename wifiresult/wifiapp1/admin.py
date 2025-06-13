@@ -1,11 +1,12 @@
 from django.contrib import admin
-from wifiapp1.models import Result, Admitcard, Answerkey, Job, Syllabus
+from wifiapp1.models import Result, Admitcard, Answerkey, Job, Syllabus,Contact
 from .forms import ResultAdminForm
 # Register your models here.
 
 admin.site.register(Admitcard)  
 admin.site.register(Answerkey)
 admin.site.register(Syllabus)
+admin.site.register(Contact)
 
 
 class ResultAdmin(admin.ModelAdmin):

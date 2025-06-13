@@ -222,7 +222,28 @@
         }
 
 
-
+.social-links {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .social-links a {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background: #f0f2f5;
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+    }
+    
+    .social-links a:hover {
+        background: var(--primary);
+        color: white;
+    }
 
 
 
@@ -234,8 +255,8 @@
         .page-header {
             background: linear-gradient(to right, var(--primary), #0d3a70);
             color: white;
-            padding: 40px 0;
-            margin-bottom: 30px;
+            padding: 20px 0;
+            margin-bottom: 20px;
             text-align: center;
         }
         

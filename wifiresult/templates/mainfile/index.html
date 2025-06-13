@@ -246,18 +246,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
         
         /* Hero Section */
         .hero {
@@ -530,15 +518,28 @@
         
         
         
-        /* Mobile Navigation */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-        }
+        .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .social-links a {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background: #f0f2f5;
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+    }
+    
+    .social-links a:hover {
+        background: var(--primary);
+        color: white;
+    }
         
         /* Responsive Design */
         @media (max-width: 992px) {
@@ -774,7 +775,7 @@
 
         
         <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 25px;">
-            <!-- Left Column -->
+            <!-- Left Column --> 
             <div>
                  
                 
@@ -821,30 +822,7 @@
                     </div>
                 </section>
                 
-                <!-- Important Links -->
-                <section class="important-links">
-                    <h2 class="section-title"><i class="fas fa-link"></i> Important Links</h2>
-                    <div class="links-grid">
-                        <div class="link-card">
-                            <h3>Government Portals</h3>
-                            <ul>
-                                <li><a href="#"><i class="fas fa-caret-right"></i> SSC Official Website</a></li>
-                                <li><a href="#"><i class="fas fa-caret-right"></i> UPSC Official Website</a></li>
-                                <li><a href="#"><i class="fas fa-caret-right"></i> RRB Official Website</a></li>
-                                <li><a href="#"><i class="fas fa-caret-right"></i> IBPS Official Website</a></li>
-                            </ul>
-                        </div>
-                        <div class="link-card">
-                            <h3>Quick Links</h3>
-                            <ul>
-                                <li><a href="#"><i class="fas fa-caret-right"></i> Latest Results</a></li>
-                                <li><a href="#"><i class="fas fa-caret-right"></i> Admit Cards</a></li>
-                                <li><a href="#"><i class="fas fa-caret-right"></i> Answer Keys</a></li>
-                                <li><a href="#"><i class="fas fa-caret-right"></i> Syllabus</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
+                
             </div>
         </div>
     </main>

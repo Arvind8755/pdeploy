@@ -56,7 +56,7 @@ class Result(models.Model):
     notification_link=models.URLField(blank=True, null=True)
     officialwebsite_link=models.URLField(blank=True, null=True)
     slug=models.SlugField(unique=True, blank=True)
-    active = models.BooleanField(default=True)
+    active = models.BooleanField(default=True )
 
     def get_absolute_url(self):
         return reverse("resultpost", kwargs={"slug": self.slug}) 
@@ -175,3 +175,30 @@ class Syllabus(models.Model):
     slug=models.SlugField(unique=True, blank=True)
     def __str__(self):
         return self.title
+    
+
+
+
+class Contact(models.Model):
+    sno=models.AutoField(primary_key=True)
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone = models.BigIntegerField(blank=True, null=True)
+    content=models.TextField()
+    timeStapm=models.DateTimeField(auto_now_add=True)
+
+
+    def __str__(self):
+        return "messages from  " + self.name+ "-" + self.email
+    
+
+# class Contact(models.Model):
+#     sno = models.AutoField(primary_key=True)
+#     name = models.CharField(max_length=100)
+#     email = models.EmailField()
+#     phone = models.CharField(max_length=15, blank=True, null=True)  # better than BigIntegerField
+#     content = models.TextField()
+#     timeStamp = models.DateTimeField(auto_now_add=True)   
+
+#     def __str__(self):
+#         return "Message from " + self.name + " - " + self.email

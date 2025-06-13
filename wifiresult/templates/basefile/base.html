@@ -80,7 +80,15 @@
             </div>
         </div>
     </nav>
-
+<br>
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+   <strong>Message :</strong>  {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"> 
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endfor %}
 {% block body %}
 
 
@@ -109,11 +117,11 @@
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Latest Results</a></li>
-                        <li><a href="#">Admit Cards</a></li>
-                        <li><a href="#">Answer Keys</a></li>
-                        <li><a href="#">Latest Jobs</a></li>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'results' %}">Latest Results</a></li>
+                        <li><a href="{% url 'admitcards' %}">Admit Cards</a></li>
+                        <li><a href="{% url 'answerkeys' %}">Answer Keys</a></li>
+                        <li><a href="{% url 'jobs' %}">Latest Jobs</a></li>
                         <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
                     </ul>
                 </div>
@@ -121,11 +129,11 @@
                 <div class="footer-column">
                     <h3>Result Categories</h3>
                     <ul>
-                        <li><a href="#">SSC Results</a></li>
-                        <li><a href="#">UPSC Results</a></li>
-                        <li><a href="#">Banking Results</a></li>
-                        <li><a href="#">Railway Results</a></li>
-                        <li><a href="#">State Level Results</a></li>
+                        <li><a href="{% url 'index' %}">SSC Results</a></li>
+                        <li><a href="{% url 'index' %}">UPSC Results</a></li>
+                        <li><a href="{% url 'index' %}">Banking Results</a></li>
+                        <li><a href="{% url 'index' %}">Railway Results</a></li>
+                        <li><a href="{% url 'index' %}">State Level Results</a></li>
                     </ul>
                 </div>
                 

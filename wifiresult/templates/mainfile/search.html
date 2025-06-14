@@ -399,13 +399,236 @@
         </div>
     </section>
     
-    
+    <!-- Main Content -->
+    {% comment %} <main class="container">
+        <div class="results-layout">
+            
                 
                   
            
             
-            
+            <!-- Results Section -->
+            <section class="results-section">
+                
+                    <div class="result-card">
+                       
+                        <div class="result-content">
+                            
+                            <div class="container">  
+          <form method="get" action="/search/" class="text-center">
+            <input type="text" class="p-3 rounded-pill fs-5 mt-1 border border-0 bg-secondary-subtle w-75" name="q"  placeholder="Search Results, Exams, Jobs..." value="{{ query }}">
+            <button type="submit" class="btn btn-outline-success fw-bold fs-2 p-2 mb-1 bt1" > Search</button>
+          </form>
+          </div>
 
+           </br></br>
+ 
+          <h1 class="ms-5 ps-5 fw-bolder text-info" >Search Results :</h1>
+
+          {% if query %}
+              <h2 class="ms-5 ps-5">Results for "{{ query }}":</h2>
+             <h3 class="ms-5 ps-5">Admissions</h3>
+          <ul class="ms-5 ps-5">
+              {% for admission in admissions %}
+                  <li>
+                    <strong > <a href="{{ admission.slug }}" target="_blank" class="text-danger">{{admission.title}}</a>  &nbsp;&nbsp;  <span>   {{admission.updated_at}}  </span> </strong> 
+                  </li>
+              {% empty %}
+                  <li>No admissions found.</li>
+              {% endfor %}
+          </ul>                     
+       
+              
+
+          <h3 class="ms-5 ps-5">Results</h3>
+          <ul class="ms-5 ps-5">
+              {% for result in results %}
+                  <li>
+                    <strong > <a href="/result/{{ result.slug }}" target="_blank" class="text-danger">{{result.title}}</a> &nbsp;&nbsp;  <span>   {{result.updated_at}}  </span></strong> 
+                  </li>
+              {% empty %}
+                  <li>No Results found.</li>
+              {% endfor %}
+          </ul>
+                         
+
+
+          <h3 class="ms-5 ps-5">Jobs</h3>
+          <ul class="ms-5 ps-5">
+              {% for job in jobs %}
+                  <li>
+                    <strong > <a href="/job/{{ job.slug }}" target="_blank" class="text-danger">{{job.title}}</a> &nbsp;&nbsp;  <span>   {{job.updated_at}}  </span></strong> 
+                  </li>
+              {% empty %}
+                  <li>No Jobs found.</li>
+              {% endfor %}
+          </ul>
+                         
+
+
+          <h3 class="ms-5 ps-5">Admitcards</h3>
+          <ul class="ms-5 ps-5">
+              {% for admitcard in admitcards %}
+                  <li>
+                    <strong > <a href="/admitcard/{{ admitcard.slug }}" target="_blank" class="text-danger">{{admitcard.title}}</a> &nbsp;&nbsp;  <span>   {{admitcard.updated_at}}  </span></strong> 
+                  </li>
+              {% empty %}
+                  <li>No admitcards found.</li>
+              {% endfor %}
+          </ul>
+                     
+
+
+           <h3 class="ms-5 ps-5">Syllabus</h3>
+          <ul class="ms-5 ps-5">
+              {% for syllabus in syllabuss %}
+                  <li>
+                    <strong > <a href="/syllabus/{{ syllabus.slug }}" target="_blank" class="text-danger">{{syllabus.title}}</a> &nbsp;&nbsp;  <span>   {{syllabus.updated_at}}  </span></strong> 
+                  </li>
+              {% empty %}
+                  <li>No Syllabuss found.</li>
+              {% endfor %}
+          </ul>
+                   
+
+
+          <h3 class="ms-5 ps-5">Answerkey</h3>
+          <ul class="ms-5 ps-5">
+              {% for answerkey in answerkeys %}
+                  <li>
+                    <strong > <a href="/answerkey/{{ answerkey.slug }}" target="_blank" class="text-danger">{{answerkey.title}}</a> &nbsp;&nbsp;  <span>   {{Answerkey.updated_at}}  </span></strong> 
+                  </li>
+              {% empty %}
+                  <li>No Answerkey found.</li>
+              {% endfor %}
+          </ul>
+ 
+
+
+          {% else %}
+          <p>Enter a search term to find jobs, exam results, or admitcards.</p>
+          {% endif %}
+                     
+                            
+                        </div>
+                   
+                
+            </section>
+        </div>
+    </main>
+
+
+                 {% endcomment %}
+
+ <main class="container py-4">
+  <section class="results-section">
+
+    <!-- Search Box -->
+    <form method="get" action="/search/" class="text-center mb-4">
+      <input type="text" class="form-control form-control-lg rounded-pill border-2 border-success w-75 mx-auto mb-2" name="q"
+        placeholder="Search Results, Exams, Jobs..." value="{{ query }}">
+      <button type="submit" class="btn btn-outline-success fw-bold fs-5 px-4">Search</button>
+    </form>
+
+    {% if query %}
+      <h2 class="fw-bold text-info text-center">Search Results for "{{ query }}"</h2>
+
+      <!-- Admissions -->
+      <div class="mt-4">
+        <h4 class="text-primary">Admissions</h4>
+        <ul class="list-unstyled">
+          {% for admission in admissions %}
+            <li class="mb-2">
+              <a href="/admission/{{ admission.slug }}" target="_blank" class="text-danger fw-semibold">{{ admission.title }}</a>
+              <small class="text-muted">({{ admission.updated_at }})</small>
+            </li>
+          {% empty %}
+            <li>No admissions found.</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Results -->
+      <div class="mt-4">
+        <h4 class="text-primary">Results</h4>
+        <ul class="list-unstyled">
+          {% for result in results %}
+            <li class="mb-2">
+              <a href="/result/{{ result.slug }}" target="_blank" class="text-danger fw-semibold">{{ result.title }}</a>
+              <small class="text-muted">({{ result.updated_at }})</small>
+            </li>
+          {% empty %}
+            <li>No results found.</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Jobs -->
+      <div class="mt-4">
+        <h4 class="text-primary">Jobs</h4>
+        <ul class="list-unstyled">
+          {% for job in jobs %}
+            <li class="mb-2">
+              <a href="/job/{{ job.slug }}" target="_blank" class="text-danger fw-semibold">{{ job.title }}</a>
+              <small class="text-muted">({{ job.updated_at }})</small>
+            </li>
+          {% empty %}
+            <li>No jobs found.</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Admit Cards -->
+      <div class="mt-4">
+        <h4 class="text-primary">Admit Cards</h4>
+        <ul class="list-unstyled">
+          {% for admitcard in admitcards %}
+            <li class="mb-2">
+              <a href="/admitcard/{{ admitcard.slug }}" target="_blank" class="text-danger fw-semibold">{{ admitcard.title }}</a>
+              <small class="text-muted">({{ admitcard.updated_at }})</small>
+            </li>
+          {% empty %}
+            <li>No admit cards found.</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Syllabus -->
+      <div class="mt-4">
+        <h4 class="text-primary">Syllabus</h4>
+        <ul class="list-unstyled">
+          {% for syllabus in syllabuss %}
+            <li class="mb-2">
+              <a href="/syllabus/{{ syllabus.slug }}" target="_blank" class="text-danger fw-semibold">{{ syllabus.title }}</a>
+              <small class="text-muted">({{ syllabus.updated_at }})</small>
+            </li>
+          {% empty %}
+            <li>No syllabus found.</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Answer Keys -->
+      <div class="mt-4">
+        <h4 class="text-primary">Answer Keys</h4>
+        <ul class="list-unstyled">
+          {% for answerkey in answerkeys %}
+            <li class="mb-2">
+              <a href="/answerkey/{{ answerkey.slug }}" target="_blank" class="text-danger fw-semibold">{{ answerkey.title }}</a>
+              <small class="text-muted">({{ answerkey.updated_at }})</small>
+            </li>
+          {% empty %}
+            <li>No answer keys found.</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    {% else %}
+      <p class="text-center text-muted">Enter a search term to find jobs, results, or exams.</p>
+    {% endif %}
+
+  </section>
+</main>
 
 {% endblock body %}
 

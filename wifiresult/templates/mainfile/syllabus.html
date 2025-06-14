@@ -363,7 +363,7 @@
         }
         
         .result-title {
-            font-size: 18px;
+            font-size: 12px;
             font-weight: 600;
             color: var(--dark);
             margin-bottom: 15px;
@@ -469,11 +469,11 @@
                     <div class="result-card">
                        
                         <div class="result-content">
-                            <h3 class="result-title"> <a href="">SSC CHSL 2023 Final Result Declared</a>   &nbsp;&nbsp;  <span class="result-date">05 Sep 2023</span></h3><hr>
-
-                             <h3 class="result-title">SSC CHSL 2023 Final Result Declared   &nbsp;&nbsp;  <span class="result-date">05 Sep 2023</span></h3><hr>
-
-                              <h3 class="result-title">SSC CHSL 2023 Final Result Declared   &nbsp;&nbsp;  <span class="result-date">05 Sep 2023</span></h3><hr>
+                             {% for  syllabus in  syllabuss reversed %} 
+                            <h3 class="result-title"> <a href="{{ syllabus.slug}}" target="_blank"> <li class="fs-6">  {{  syllabus.title }}</li>
+                                 
+                             </a>   &nbsp;&nbsp;  <span class="result-date">{{ syllabus.updated_at}}</span></h3><hr>
+{% endfor %}
                             
                             
                         </div>

@@ -369,7 +369,7 @@
         }
         
         .result-title {
-            font-size: 18px;
+            font-size: 12px;
             font-weight: 600;
             color: var(--dark);
             margin-bottom: 15px;
@@ -452,7 +452,7 @@
  <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1 style="font-size:2rem;"><i class="fas fa-ad"></i> Latest Admidcards</h1>
+            <h1 style="font-size:2rem;"> <i class="fas fa-id-card"></i> Latest Admidcards</h1>
             <ul class="breadcrumb">
                 <li><a href="/">Home</a></li>
                 <li>Latest Admidcards</li>
@@ -477,11 +477,13 @@
                     <div class="result-card">
                        
                         <div class="result-content">
-                            <h3 class="result-title"> <a href="">SSC CHSL 2023 Final Result Declared</a>   &nbsp;&nbsp;  <span class="result-date">05 Sep 2023</span></h3><hr>
+                            {% for admitcard in admitcards reversed %} 
+                            <h3 class="result-title"> <a href="{{admitcard.slug}}" target="_blank"> <li class="fs-6">  {{ admitcard.title }}</li>
+                                 
+                             </a>   &nbsp;&nbsp;  <span class="result-date">{{admitcard.updated_at}}</span></h3><hr>
+{% endfor %}
 
-                             <h3 class="result-title">SSC CHSL 2023 Final Result Declared   &nbsp;&nbsp;  <span class="result-date">05 Sep 2023</span></h3><hr>
-
-                              <h3 class="result-title">SSC CHSL 2023 Final Result Declared   &nbsp;&nbsp;  <span class="result-date">05 Sep 2023</span></h3><hr>
+                            
                             
                             
                         </div>

@@ -429,8 +429,8 @@
 {% endfor %}
     
     
- <div class="container my-3">
-<h3>Contact arvind Admin</h3>
+ {% comment %} <div class="container my-3">
+<h3 class="text-center">Contact Us</h3>
 <form action="/contact/" method="post">
   {% csrf_token %}
   <div class="form-group">
@@ -457,7 +457,42 @@
 
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+</div> {% endcomment %}
+
+
+<div class="container my-5 py-4 px-4 shadow-lg rounded-4 bg-light">
+  <h2 class="text-center mb-4 text-primary fw-bold">📩 Contact Us</h2>
+
+  <form action="/contact/" method="post">
+    {% csrf_token %}
+
+    <div class="mb-3">
+      <label for="name" class="form-label fw-semibold">Full Name</label>
+      <input type="text" class="form-control form-control-lg rounded-pill" id="name" name="name" placeholder="Enter your name" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label fw-semibold">Email address</label>
+      <input type="email" class="form-control form-control-lg rounded-pill" id="email" name="email" placeholder="example@gmail.com" required>
+      <div class="form-text text-muted">We'll never share your email with anyone else.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="phone" class="form-label fw-semibold">Phone Number</label>
+      <input type="tel" class="form-control form-control-lg rounded-pill" id="phone" name="phone" placeholder="9876543210" required>
+    </div>
+
+    <div class="mb-4">
+      <label for="content" class="form-label fw-semibold">Describe your issue</label>
+      <textarea class="form-control rounded-4 p-3" id="content" name="content" rows="5" placeholder="Type your message here..." required></textarea>
+    </div>
+
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <button type="submit" class="btn btn-success btn-lg rounded-pill fw-bold">📨 Submit</button>
+    </div>
+  </form>
 </div>
+
 
 
 {% endblock body %}

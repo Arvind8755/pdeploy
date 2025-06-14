@@ -112,7 +112,8 @@
         }
         
         .search-box {
-            background: white;
+           background: white;  
+           
             border-radius: 50px;
             padding: 5px 15px;
             width: 350px;
@@ -126,10 +127,12 @@
             padding: 10px;
             width: 100%;
             font-size: 16px;
+            display:block
         }
         
         .search-box button {
             background: none;
+            display: block;
             border: none;
             color: var(--primary);
             font-size: 18px;
@@ -636,7 +639,7 @@
         <section class="hero">
             <div class="hero-content">
                 <h2>India's Most Trusted Government Exam Results Portal</h2>
-                {% comment %} <p>Get latest exam results, admit cards, answer keys and job notifications from all government departments in one place.</p> {% endcomment %}
+               
                 <h1>SarkariResult 2025 by WifiResult – Latest Sarkari Naukri, Results & Online Form Updates</h1>
 
                 <a href="#" class="btn">Check Latest Results <i class="fas fa-arrow-right"></i></a>
@@ -649,117 +652,89 @@
             <div class="results-grid">
                 <!-- Result Card 1 -->
                 <div class="result-card">
-                    <div class="result-badge"style="text-align:center;"> <a href="{% url 'jobs' %}" class="text-white text-decoration-none"><i class="fas fa-briefcase"></i> Latest Jobs</a></div>
+                    <div class="result-badge"style="text-align:center;"> <a href="{% url 'jobs' %}" target="_blank" class="text-white text-decoration-none"><i class="fas fa-briefcase"></i> Latest Jobs</a></div>
 
                     <div class="result-content">
                                     {% for job in jobs %} 
-                        <a href="jobs/{{job.slug}}" class="text-decoration-none"> <h3 class="result-title"> {{job.title}}</h3></a>
+                        <a href="job/{{job.slug}}" target="_blank" class="text-decoration-none"> <h5 class="result-title"> {{job.title}}</h5></a>
                         {% endfor %}
                      
-                        <hr>
-                          <h3 class="result-title">SSC CHSL 2023 Final Result Declared</h3>
-                        <div class="result-meta">
-                            <span class="result-date">05 Sep 2023</span>
+                        <div class="result-actions">
+                            <a href="{% url 'jobs' %}" target="_blank" class="result-link"><i class="fas fa-eye"></i> View Jobs</a>
                         </div>
 
-                        <div class="result-actions">
-                            <a href="{% url 'jobs' %}" class="result-link"><i class="fas fa-eye"></i> View Jobs</a>
-                        </div>
                     </div>
                 </div>
                 
                 <!-- Result Card 2 -->
                 <div class="result-card">
-                    <div class="result-badge" style="background: var(--accent); text-align:center;"> <i class="fas fa-bolt"><a href="{% url 'results' %}" class="text-white text-decoration-none"></i> Latest Results</a></div>
+                    <div class="result-badge" style="background: var(--accent); text-align:center;">  <a href="{% url 'results' %}" target="_blank" class="text-white text-decoration-none"><i class="fas fa-newspaper"></i>  Latest Results</a></div>
                     <div class="result-content">
                         {% for result in results %} 
-                        <a href="results/{{result.slug}}" class="text-decoration-none"> <h3 class="result-title"> {{result.title | truncatechars:70}}</h3></a>
-                        <hr>
+                        <a href="result/{{result.slug}}" target="_blank" class="text-decoration-none"> <h3 class="result-title"> {{result.title | truncatechars:70}}</h3></a>
                         {% endfor %}
-                         
-                          <h3 class="result-title">UPSC Civil Services Prelims Result 2023</h3>
-                        <div class="result-meta">
-                            <span class="result-date">03 Sep 2023</span>
-                        </div>
+                        
                         
                         <div class="result-actions">
-                            <a href="{% url 'results' %}" class="result-link"><i class="fas fa-eye"></i> View Result</a>
+                            <a href="{% url 'results' %}" target="_blank" class="result-link"><i class="fas fa-eye"></i> View Result</a>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Result Card 3 -->
                 <div class="result-card">
-                    <div class="result-badge" style="background: var(--warning); text-align:center;"><i class="fas fa-id-card"></i> Latest Admit Cards</div>
+                    <div class="result-badge" style="background: var(--warning); text-align:center;"><a href="{% url 'admitcards' %}" target="_blank" class="text-white text-decoration-none"><i class="fas fa-id-card"></i> Latest Admit Cards</a></div>
                     <div class="result-content">
-                        <h3 class="result-title">IBPS Clerk XIII Prelims Result 2023</h3>
-                        <div class="result-meta">
-                            <span class="result-date">01 Sep 2023</span>
-                        </div><hr>
-                         <h3 class="result-title">IBPS Clerk XIII Prelims Result 2023</h3>
-                        <div class="result-meta">
-                            <span class="result-date">01 Sep 2023</span>
-                        </div>
+                        
+                      {% for admitcard in admitcards %} 
+                        <a href="admitcard/{{admitcard.slug}}" target="_blank" class="text-decoration-none"> <h5 class="result-title"> {{admitcard.title}}</h5></a>
+                        {% endfor %}
                       
                         <div class="result-actions">
-                            <a href="#" class="result-link"><i class="fas fa-eye"></i> View Result</a>
+                            <a href="{% url 'admitcards' %}" target="_blank" class="result-link"><i class="fas fa-eye"></i> View Admitcard</a>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Result Card 4 -->
                 <div class="result-card">
-                    <div class="result-badge" style="background: var(--danger);text-align:center;">Latest Answer Keys</div>
+                    <div class="result-badge" style="background: var(--danger);text-align:center;"><a href="{% url 'answerkeys' %}" target="_blank" class="text-white text-decoration-none"><i class="fas fa-file-alt"></i> Latest Answer Keys</a></div>
                     <div class="result-content">
-                        <h3 class="result-title">RRB NTPC CBT-2 Result 2023</h3>
-                        <div class="result-meta">
-                            <span class="result-date">29 Aug 2023</span>
-                        </div><hr>
-                         <h3 class="result-title">RRB NTPC CBT-2 Result 2023</h3>
-                        <div class="result-meta">
-                            <span class="result-date">29 Aug 2023</span>
-                        </div>
+                        
+                        {% for answerkey in answerkeys %} 
+                        <a href="answerkey/{{answerkey.slug}}" target="_blank" class="text-decoration-none"> <h3 class="result-title"> {{answerkey.title}}</h3></a>
+                        {% endfor %}
               
                         <div class="result-actions">
-                            <a href="#" class="result-link"><i class="fas fa-eye"></i> View Result</a>
+                            <a href="{% url 'answerkeys' %}" target="_blank" class="result-link"><i class="fas fa-eye"></i> View Answerkey</a>
                         </div>
                     </div>
                 </div>
        
                   <!-- Result Card 5 -->
                 <div class="result-card">
-                    <div class="result-badge" style="background: var(--warning); text-align:center;"> Latest Syllabus</div>
+                    <div class="result-badge" style="background: var(--warning); text-align:center;"><a href="{% url 'syllabus' %}" target="_blank" class="text-white text-decoration-none"><i class="fas fa-book"></i>  Latest Syllabus</a></div>
                     <div class="result-content">
-                        <h3 class="result-title">IBPS Clerk XIII Prelims Result 2023</h3>
-                        <div class="result-meta">
-                            <span class="result-date">01 Sep 2023</span>
-                        </div><hr>
-                         <h3 class="result-title">IBPS Clerk XIII Prelims Result 2023</h3>
-                        <div class="result-meta">
-                            <span class="result-date">01 Sep 2023</span>
-                        </div>
+                            {% for syllabus in syllabuss %} 
+                        <a href="syllabus/{{syllabus.slug}}" target="_blank" class="text-decoration-none"> <h3 class="result-title"> {{syllabus.title}}</h3></a>
+                        {% endfor %}
                       
                         <div class="result-actions">
-                            <a href="#" class="result-link"><i class="fas fa-eye"></i> View Result</a>
+                            <a href="{% url 'syllabus' %}" target="_blank" class="result-link"><i class="fas fa-eye"></i> View Syllabus</a>
                         </div>
                     </div>
                 </div>
 
                  <!-- Result Card 6 -->
                 <div class="result-card">
-                    <div class="result-badge" style="background: var(--warning); text-align:center;"> Latest Admission</div>
+                    <div class="result-badge" style="background: var(--warning); text-align:center;"><a href="{% url 'admissions' %}" target="_blank" class="text-white text-decoration-none"><i class="fas fa-graduation-cap"></i>   Latest Admission</a></div>
                     <div class="result-content">
-                        <h3 class="result-title">IBPS Clerk XIII Prelims Result 2023</h3>
-                        <div class="result-meta">
-                            <span class="result-date">01 Sep 2023</span>
-                        </div><hr>
-                         <h3 class="result-title">IBPS Clerk XIII Prelims Result 2023</h3>
-                        <div class="result-meta">
-                            <span class="result-date">01 Sep 2023</span>
-                        </div>
+                          {% for admission in admissions %} 
+                    <a href="admission/{{admission.slug}}" target="_blank" class="text-decoration-none"> <h3 class="result-title"> {{admission.title}}</h3></a>
+                        {% endfor %}
                       
                         <div class="result-actions">
-                            <a href="#" class="result-link"><i class="fas fa-eye"></i> View Result</a>
+                            <a href="{% url 'admissions' %}" target="_blank" class="result-link"><i class="fas fa-eye"></i> View Admission</a>
                         </div>
                     </div>
                 </div>

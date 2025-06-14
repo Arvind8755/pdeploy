@@ -365,7 +365,7 @@
         }
         
         .result-title {
-            font-size: 18px;
+            font-size: 12px;
             font-weight: 600;
             color: var(--dark);
             margin-bottom: 15px;
@@ -446,7 +446,7 @@
  <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1 style="font-size:2rem;"><i class="fas fa-graduation-cap"></i> Latest Results</h1>
+            <h1 style="font-size:2rem;"><i class="fas fa-newspaper"></i> &nbsp; Latest Results</h1>
             <ul class="breadcrumb">
                 <li><a href="/">Home</a></li>
                 <li>Latest Results</li>
@@ -472,14 +472,11 @@
                        
                         <div class="result-content">
                              {% for result in results %} 
-                            <h3 class="result-title"> <a href="{{result.slug}}"> <li class="fs-6">  {{ result.title }}</li>
+                            <h3 class="result-title"> <a href="{{result.slug}}" target="_blank" > <li class="fs-6">  {{ result.title }}</li>
                                  
                              </a>   &nbsp;&nbsp;  <span class="result-date">{{result.updated_at}}</span></h3><hr>
 {% endfor %}
-                             <h3 class="result-title">SSC CHSL 2023 Final Result Declared   &nbsp;&nbsp;  <span class="result-date">05 Sep 2023</span></h3><hr>
-
-                              <h3 class="result-title">SSC CHSL 2023 Final Result Declared   &nbsp;&nbsp;  <span class="result-date">05 Sep 2023</span></h3><hr>
-                            
+                     
                             
                         </div>
                    
@@ -496,52 +493,4 @@
      
    
 
-    <script>
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            const navContainer = document.querySelector('.nav-container');
-            navContainer.style.display = navContainer.style.display === 'flex' ? 'none' : 'flex';
-        });
-        
-        // Add active class to clicked nav item
-        const navItems = document.querySelectorAll('.nav-item');
-        navItems.forEach(item => {
-            item.addEventListener('click', function() {
-                navItems.forEach(i => i.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-        
-        // Simple animation for cards on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.result-card');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            cards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'all 0.5s ease';
-                observer.observe(card);
-            });
-        });
-        
-        // Set today's date as default for end date filter
-        const today = new Date();
-        const formattedToday = today.toISOString().split('T')[0];
-        document.getElementById('end-date').value = formattedToday;
-        
-        // Set start date to 30 days ago
-        const thirtyDaysAgo = new Date();
-        thirtyDaysAgo.setDate(today.getDate() - 30);
-        const formattedThirtyDaysAgo = thirtyDaysAgo.toISOString().split('T')[0];
-        document.getElementById('start-date').value = formattedThirtyDaysAgo;
-    </script>
- 
+  

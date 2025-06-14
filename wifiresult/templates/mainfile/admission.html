@@ -4,7 +4,7 @@
 {% block seo %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Answer keys - Sarkari Result | wifiresult | Latest Answer Key 2025</title> 
+    <title>Admission - Sarkari Result | wifiresult | Admission 2025</title> 
     <link rel="canonical" href="https://www.wifiresult.xyz/answerkeys/"/>
 <meta name="description" content=" Get access Latest Recruitment Exam Answer Key, Question Paper, previous year and recent, Sarkari Result, Frequently Update"> 
 <meta name="keywords" content="Sarkari Result Answer Key, SSC Answer Key, UPSSSC Answer Key 2025, UPPSC Answer Key, All Admission Answer Key, Question Paper Download -wifiresult.xyz">
@@ -446,10 +446,10 @@
  <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1 style="font-size:2rem;"><i class="fas fa-file-alt"></i> Latest Answerkeys</h1>
+            <h1 style="font-size:2rem;"><i class="fas fa-graduation-cap"></i>  Latest Admissions</h1>
             <ul class="breadcrumb">
                 <li><a href="/">Home</a></li>
-                <li>Latest Answerkeys</li>
+                <li>Admission</li>
             </ul>
         </div>
     </section>
@@ -471,12 +471,13 @@
                     <div class="result-card">
                        
                         <div class="result-content">
-                             {% for answerkey in answerkeys reversed %} 
-                            <h3 class="result-title"> <a href="{{answerkey.slug}}" target="_blank"> <li class="fs-6">  {{ answerkey.title }}</li>
+                             {% for  admission in  admissions reversed %} 
+                            <h3 class="result-title"> <a href="{{ admission.slug}}" target="_blank"> <li class="fs-6">  {{  admission.title }}</li>
                                  
-                             </a>   &nbsp;&nbsp;  <span class="result-date">{{answerkey.updated_at}}</span></h3><hr>
+                             </a>   &nbsp;&nbsp;  <span class="result-date">{{ admission.updated_at}}</span></h3><hr>
 {% endfor %}
- 
+
+                           
                             
                             
                         </div>
@@ -490,56 +491,4 @@
 {% endblock body %}
 
 
- 
-     
-   
-
-    <script>
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            const navContainer = document.querySelector('.nav-container');
-            navContainer.style.display = navContainer.style.display === 'flex' ? 'none' : 'flex';
-        });
-        
-        // Add active class to clicked nav item
-        const navItems = document.querySelectorAll('.nav-item');
-        navItems.forEach(item => {
-            item.addEventListener('click', function() {
-                navItems.forEach(i => i.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-        
-        // Simple animation for cards on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.result-card');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            cards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'all 0.5s ease';
-                observer.observe(card);
-            });
-        });
-        
-        // Set today's date as default for end date filter
-        const today = new Date();
-        const formattedToday = today.toISOString().split('T')[0];
-        document.getElementById('end-date').value = formattedToday;
-        
-        // Set start date to 30 days ago
-        const thirtyDaysAgo = new Date();
-        thirtyDaysAgo.setDate(today.getDate() - 30);
-        const formattedThirtyDaysAgo = thirtyDaysAgo.toISOString().split('T')[0];
-        document.getElementById('start-date').value = formattedThirtyDaysAgo;
-    </script>
  

@@ -3,7 +3,7 @@
 
 {% block seo %}
     <title>{{ result.title }}-wifiresult.xyz</title> 
-<link rel="canonical" href="https://wifiresult.xyz/results/{{result.slug}}"/>
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/result/{{result.slug}}"/>
 <meta name="description" content="{{result.description}}">
 <meta name="keywords" content="{{result.keywords}}">
 <meta property="og:title" content="{{ result.title }}" />
@@ -23,7 +23,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="{{ result.updated_at|date:'c' }}">
 <meta property="article:modified_time" content="{{ result.updated_at|date:'c' }}">
-<meta property="og:url" content="https://wifiresult.xyz/results/{{result.slug}}"/>
+<meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/result/{{result.slug}}"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'css/base.css' %}">
@@ -35,7 +35,7 @@
           "@type": "Article",
           "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": "https://wifiresult.xyz/results/{{result.slug}}"
+              "@id": "{{ request.scheme }}://{{ request.get_host }}/result/{{result.slug}}"
           },
           "headline": "{{ result.title }}",
           "description": "{{result.description}}",
@@ -45,11 +45,11 @@
           "author": {
             "@type": "Organization",
             "name": "Sarkari Result",
-            "url": "https://wifiresult.xyz/"
+            "url": "{{ request.scheme }}://{{ request.get_host }}"
           },  
           "publisher": {
               "@type": "Organization",
-              "name": "wifiresult.xyz",
+              "name": "{{ request.get_host }}",
               "logo": {
               "@type": "ImageObject",
               "url": "{{ request.scheme }}://{{ request.get_host }}/static/images/logo.png"
@@ -578,22 +578,4 @@
     </div>
 </main>
 
-
-<script>
-    // Mobile menu toggle
-    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-        const navContainer = document.getElementById('mainNav');
-        navContainer.classList.toggle('active');
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
-        const navContainer = document.getElementById('mainNav');
-        const menuBtn = document.querySelector('.mobile-menu-btn');
-        
-        if (!navContainer.contains(event.target) {
-            navContainer.classList.remove('active');
-        }
-    });
-</script>
 {% endblock body %}

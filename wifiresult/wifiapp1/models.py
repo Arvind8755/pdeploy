@@ -167,7 +167,7 @@ class Syllabus(models.Model):
     result_available = models.CharField(max_length=100,blank=True, null=True)
     final_result_available = models.CharField(max_length=100,blank=True, null=True)
     applecation_fee= RichTextField(blank=True, null=True)
-    vacancy_details = RichTextField(blank=True, null=True)
+    subject_details = RichTextField(blank=True, null=True)
     eligibility_criteria=RichTextField(blank=True, null=True)
     selection_process= RichTextField(blank=True, null=True)
     important_information= RichTextField(blank=True, null=True)
@@ -352,6 +352,10 @@ class Admission(models.Model):
     receipt_of_application = models.CharField(max_length=100,blank=True, null=True)
     last_date_fee = models.CharField(max_length=100,blank=True, null=True)
     correction_date = models.CharField(max_length=100,blank=True, null=True)
+
+    Merit_list_released = models.CharField(max_length=100, blank=True, null=True)
+    Counseling = models.CharField(max_length=100, blank=True, null=True)
+
     exam_date = models.CharField(max_length=100,blank=True, null=True)
     exam_date1 = models.CharField(max_length=100,blank=True, null=True)
     exam_date2 = models.CharField(max_length=100,blank=True, null=True)
@@ -361,7 +365,9 @@ class Admission(models.Model):
     result_available = models.CharField(max_length=100,blank=True, null=True)
     final_result_available = models.CharField(max_length=100,blank=True, null=True)
     applecation_fee= RichTextField(blank=True, null=True)
-    vacancy_details = RichTextField(blank=True, null=True)
+
+    admission_details = RichTextField(blank=True, null=True)
+
     eligibility_criteria=RichTextField(blank=True, null=True)
     selection_process= RichTextField(blank=True, null=True)
     important_information= RichTextField(blank=True, null=True)
@@ -370,6 +376,7 @@ class Admission(models.Model):
     admitcard_link=models.URLField(blank=True, null=True)
     answerkeyI_link=models.URLField(blank=True, null=True)
     answerkeyII_link=models.URLField(blank=True, null=True)
+    download_course_list_link=models.URLField(blank=True, null=True)
     result_link=models.URLField(blank=True, null=True)
     resultI_link=models.URLField(blank=True, null=True)
     resultII_link=models.URLField(blank=True, null=True)

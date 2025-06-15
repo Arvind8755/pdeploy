@@ -440,59 +440,59 @@
         </div>
     
         {% if syllabus.online_application_date %}
-        <div class="text-primary ms-4 fs-4 mt-3">
-            ● Dates for start of online application: 
+        <div class="text-primary ms-4 fs-5 mt-3">
+            ● Dates For Start Of Online Application: 
             <span class="text-dark fw-bold">{{syllabus.online_application_date}}</span>
         </div>
         {% endif %}
         
  
    {% if syllabus.online_last_date %}
-     <div class="text-primary ms-4 fs-4"> ● Dates for submission of online application : <span class="text-dark fw-bold">  {{syllabus.online_last_date}}  </span></div>
+     <div class="text-primary ms-4 fs-5"> ● Dates For Submission Of Online Application : <span class="text-dark fw-bold">  {{syllabus.online_last_date}}  </span></div>
     {% endif %}
 
     {% if syllabus.receip_of_application %}
-     <div class="text-primary ms-4 fs-4"> ● Last date for receipt of online application : <span class="text-dark fw-bold">   {{syllabus.receipt_of_application}} </span></div>
+     <div class="text-primary ms-4 fs-5"> ● Last Date For Receipt Of Online Application : <span class="text-dark fw-bold">   {{syllabus.receipt_of_application}} </span></div>
     {% endif %}
 
     {% if syllabus.last_date_fee %}
-       <div class="text-primary ms-4 fs-4"> ● Last date for making fee payment  : <span class="text-dark fw-bold">  {{syllabus.last_date_fee}}    </span></div>
+       <div class="text-primary ms-4 fs-5"> ● Last Date For Making Fee Payment  : <span class="text-dark fw-bold">  {{syllabus.last_date_fee}}    </span></div>
     {% endif %}
 
     {% if syllabus.correction_date %}
-         <div class="text-primary ms-4 fs-4">●  Correction Date  : <span class="text-dark fw-bold"> {{syllabus.correction_date}}   </span></div>
+         <div class="text-primary ms-4 fs-5">●  Correction Date  : <span class="text-dark fw-bold"> {{syllabus.correction_date}}   </span></div>
     {% endif %}
 
     {% if syllabus.exam_date %}
-          <div class="text-primary ms-4 fs-4">  ● Exam date  : <span class="text-dark fw-bold">{{syllabus.exam_date}}   </span></div>
+          <div class="text-primary ms-4 fs-5">  ● Exam date  : <span class="text-dark fw-bold">{{syllabus.exam_date}}   </span></div>
     {% endif %}
 
 {% if syllabus.exam_date1 %}
-          <div class="text-primary ms-4 fs-4">  ● Stage I Exam Date  : <span class="text-dark fw-bold">{{syllabus.exam_date1}}   </span></div>
+          <div class="text-primary ms-4 fs-5">  ● Stage I Exam Date  : <span class="text-dark fw-bold">{{syllabus.exam_date1}}   </span></div>
     {% endif %}
 
 {% if syllabus.exam_date2 %}
-          <div class="text-primary ms-4 fs-4">  ● Stage II Exam Date  : <span class="text-dark fw-bold">{{syllabus.exam_date2}}   </span></div>
+          <div class="text-primary ms-4 fs-5">  ● Stage II Exam Date  : <span class="text-dark fw-bold">{{syllabus.exam_date2}}   </span></div>
     {% endif %}
     
 {% if syllabus.exam_date3 %}
-          <div class="text-primary ms-4 fs-4">  ● Stage III Exam Date  : <span class="text-dark fw-bold">{{syllabus.exam_date3}}   </span></div>
+          <div class="text-primary ms-4 fs-5">  ● Stage III Exam Date  : <span class="text-dark fw-bold">{{syllabus.exam_date3}}   </span></div>
     {% endif %}
     
     {% if syllabus.admit_card_available %}
-           <div class="text-primary ms-4 fs-4">● Admit Card   : <span class="text-dark fw-bold">{{syllabus.admit_card_available}}  </span></div>
+           <div class="text-primary ms-4 fs-5">● Admit Card   : <span class="text-dark fw-bold">{{syllabus.admit_card_available}}  </span></div>
            {% endif %}
 
            {% if syllabus.answerkey_available_date %}
-            <div class="text-primary ms-4 fs-4">● Answer Key    : <span class="text-dark fw-bold"> {{syllabus.answerkey_available_date}}   </span></div>
+            <div class="text-primary ms-4 fs-5">● Answer Key    : <span class="text-dark fw-bold"> {{syllabus.answerkey_available_date}}   </span></div>
             {% endif %}
 
             {% if syllabus.result_available %}
-             <div class="text-primary ms-4 fs-4">● Result   : <span class="text-dark fw-bold"> {{syllabus.result_available}}   </span></div>
+             <div class="text-primary ms-4 fs-5">● Result   : <span class="text-dark fw-bold"> {{syllabus.result_available}}   </span></div>
             {% endif %}
   
             {% if syllabus.final_result_available %}
-              <div class="text-primary ms-4 fs-4">● Final Result : <span class="text-dark fw-bold"> {{syllabus.final_result_available}}   </span></div>
+              <div class="text-primary ms-4 fs-5">● Final Result : <span class="text-dark fw-bold"> {{syllabus.final_result_available}}   </span></div>
             {% endif %}
  
           {% if syllabus.applecation_fee %}
@@ -501,16 +501,16 @@
         {{syllabus.applecation_fee|safe}}
         {% endif %}
         
-        <div class="text-primary ms-3 fs-3 mt-4">
+        <div class="text-primary ms-3 fs-4 mt-3">
             <span class="text-danger fs-3">Note:</span> 
             Candidates can deposit the exam fee through bank challan or online payment mode
         </div>
         <br>
         
-        {% if syllabus.vacancy_details %}
+        {% if syllabus.subject_details %}
         <div class="text-success fs-3 mb-3 text-center bg-primary text-white fw-bold text-center-mobile">
-            <i class="fas fa-file-alt text-white"></i> Vacancy Details</div>
-        {{syllabus.vacancy_details|safe}}
+            <i class="fas fa-file-alt text-white"></i> Subject Details</div>
+        {{syllabus.subject_details|safe}}
         {% endif %}
         <br>
         
@@ -524,12 +524,10 @@
         <div class="fs-3 text-center bg-primary text-white fw-bold text-center-mobile mb-3">
  <i class="fas fa-clipboard-check me-2"></i> Selection Process</div>
         {{syllabus.selection_process|safe}}
-        {% endif %}
-        
-        <div class="text-danger h3 ms-3">
-            <span>Note:</span> The selection of the candidate will be based on all Three exams.
+        <div class="text-primary h4 ms-3">
+            <span  class="text-danger">Note:</span> The selection of the candidate will be based on all Three exams.
         </div>
-        <br>
+        <br>     {% endif %}
         
         {% if syllabus.important_information %}
         <div class="fs-3 mb-3 bg-primary text-center text-white fw-bold text-center-mobile">

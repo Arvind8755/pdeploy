@@ -43,10 +43,12 @@
         <div class="container header-content">
             <div class="logo">
                 <div class="logo-icon">
-                    <i class="fas fa-file-contract"></i>
+
+                    
+                    
                 </div>
                 <div class="logo-text">
-                    <h2>wifiresult.xyz</h2>
+                   <a href="{% url 'index' %}" class="text-white text-decoration-none">  <h2>wifiresult.xyz</h2></a>
                     <span>Government Exam Results Portal</span>
                 </div>
             </div>
@@ -76,15 +78,15 @@
     <nav class="main-nav">
         <div class="container">
             <div class="nav-container">
-               <a href="{% url 'index' %}" target="_blank" class="nav-item {% if request.path == '/' %}active{% endif %}"><i class="fas fa-home"></i> Home</a> 
-                <a href="{% url 'results' %}" target="_blank" class="nav-item {% if request.path == '/results/' %}active{% endif %}"><i class="fas fa-newspaper"></i>
+               <a href="{% url 'index' %}"   class="nav-item {% if request.path == '/' %}active{% endif %}"><i class="fas fa-home"></i> Home</a> 
+                <a href="{% url 'results' %}"  class="nav-item {% if request.path == '/results/' %}active{% endif %}"><i class="fas fa-newspaper"></i>
  Results</a>
-                <a href="{% url 'admitcards' %}" target="_blank" class="nav-item {% if request.path == '/admitcards/' %}active{% endif %}"><i class="fas fa-ad"></i> Admit Cards</a>
-              <a href="{% url 'answerkeys' %}" target="_blank" class="nav-item {% if request.path == '/answerkeys/' %}active{% endif %}"><i class="fas fa-file-alt"></i> Answer Keys</a>
-<a href="{% url 'jobs' %}" target="_blank" class="nav-item {% if request.path == '/jobs/' %}active{% endif %}"><i class="fas fa-bullhorn"></i> Latest Jobs</a>
-<a href="{% url 'syllabus' %}" target="_blank" class="nav-item {% if request.path == '/syllabus/' %}active{% endif %}"><i class="fas fa-book"></i> Syllabus</a>
-<a href="{% url 'admissions' %}" target="_blank" class="nav-item {% if request.path == '/admissions/' %}active{% endif %}"><i class="fas fa-graduation-cap"></i> Admission</a>
-<a href="{% url 'contact' %}" target="_blank" class="nav-item {% if request.path == '/contact/' %}active{% endif %}"><i class="fas fa-phone"></i> Contact</a>
+                <a href="{% url 'admitcards' %}"  class="nav-item {% if request.path == '/admitcards/' %}active{% endif %}"><i class="fas fa-ad"></i> Admit Cards</a>
+              <a href="{% url 'answerkeys' %}"  class="nav-item {% if request.path == '/answerkeys/' %}active{% endif %}"><i class="fas fa-file-alt"></i> Answer Keys</a>
+<a href="{% url 'jobs' %}"  class="nav-item {% if request.path == '/jobs/' %}active{% endif %}"><i class="fas fa-bullhorn"></i> Latest Jobs</a>
+<a href="{% url 'syllabus' %}"   class="nav-item {% if request.path == '/syllabus/' %}active{% endif %}"><i class="fas fa-book"></i> Syllabus</a>
+<a href="{% url 'admissions' %}"   class="nav-item {% if request.path == '/admissions/' %}active{% endif %}"><i class="fas fa-graduation-cap"></i> Admission</a>
+<a href="{% url 'contact' %}"   class="nav-item {% if request.path == '/contact/' %}active{% endif %}"><i class="fas fa-phone"></i> Contact</a>
             </div>
         </div>
     </nav>

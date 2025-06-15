@@ -21,7 +21,7 @@ urlpatterns = [
 
     
     path("result/<slug:slug>/", views.resultpost, name="resultpost"),
-    path("admitcard/<slug:slug>/", views.admitcardpost, name="admidcardpost"),
+    path("admitcard/<slug:slug>/", views.admitcardpost, name="admitcardpost"),
     path("answerkey/<slug:slug>/", views.answerkeypost, name="answerkeypost"),
     path("syllabus/<slug:slug>/", views.syllabuspost, name="syllabuspost"),
     path("job/<slug:slug>/", views.jobpost, name="jobpost"),

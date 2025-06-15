@@ -440,59 +440,67 @@
         </div>
     
         {% if admission.online_application_date %}
-        <div class="text-primary ms-4 fs-4 mt-3">
-            ● Dates for start of online application: 
+        <div class="text-primary ms-4 fs-5 mt-3">
+            ● Dates For Start Of Online Application: 
             <span class="text-dark fw-bold">{{admission.online_application_date}}</span>
         </div>
         {% endif %}
         
  
    {% if admission.online_last_date %}
-     <div class="text-primary ms-4 fs-4"> ● Dates for submission of online application : <span class="text-dark fw-bold">  {{admission.online_last_date}}  </span></div>
+     <div class="text-primary ms-4 fs-5"> ● Dates For Submission Of Online Application : <span class="text-dark fw-bold">  {{admission.online_last_date}}  </span></div>
     {% endif %}
 
     {% if admission.receip_of_application %}
-     <div class="text-primary ms-4 fs-4"> ● Last date for receipt of online application : <span class="text-dark fw-bold">   {{admission.receipt_of_application}} </span></div>
+     <div class="text-primary ms-4 fs-5"> ● Last Date For Receipt Of Online Application : <span class="text-dark fw-bold">   {{admission.receipt_of_application}} </span></div>
     {% endif %}
 
     {% if admission.last_date_fee %}
-       <div class="text-primary ms-4 fs-4"> ● Last date for making fee payment  : <span class="text-dark fw-bold">  {{admission.last_date_fee}}    </span></div>
+       <div class="text-primary ms-4 fs-5"> ● Last Date For Making Fee Payment  : <span class="text-dark fw-bold">  {{admission.last_date_fee}}    </span></div>
     {% endif %}
 
     {% if admission.correction_date %}
-         <div class="text-primary ms-4 fs-4">●  Correction Date  : <span class="text-dark fw-bold"> {{admission.correction_date}}   </span></div>
+         <div class="text-primary ms-4 fs-5">●  Correction Date  : <span class="text-dark fw-bold"> {{admission.correction_date}}   </span></div>
+    {% endif %}
+
+    {% if admission.merit_list_released_date %}
+         <div class="text-primary ms-4 fs-5">●  Merit List Released  : <span class="text-dark fw-bold"> {{admission.merit_list_released_date}}   </span></div>
+    {% endif %}
+
+    {% if admission.counseling_date %}
+         <div class="text-primary ms-4 fs-5">●  Counseling  : <span class="text-dark fw-bold"> {{admission.counseling_date}}   </span></div>
     {% endif %}
 
     {% if admission.exam_date %}
-          <div class="text-primary ms-4 fs-4">  ● Exam date  : <span class="text-dark fw-bold">{{admission.exam_date}}   </span></div>
+          <div class="text-primary ms-4 fs-5">  ● Exam date  : <span class="text-dark fw-bold">{{admission.exam_date}}   </span></div>
     {% endif %}
 
 {% if admission.exam_date1 %}
-          <div class="text-primary ms-4 fs-4">  ● Stage I Exam Date  : <span class="text-dark fw-bold">{{admission.exam_date1}}   </span></div>
+          <div class="text-primary ms-4 fs-5">  ● Stage I Exam Date  : <span class="text-dark fw-bold">{{admission.exam_date1}}   </span></div>
     {% endif %}
 
 {% if admission.exam_date2 %}
-          <div class="text-primary ms-4 fs-4">  ● Stage II Exam Date  : <span class="text-dark fw-bold">{{admission.exam_date2}}   </span></div>
+          <div class="text-primary ms-4 fs-5">  ● Stage II Exam Date  : <span class="text-dark fw-bold">{{admission.exam_date2}}   </span></div>
     {% endif %}
     
 {% if admission.exam_date3 %}
-          <div class="text-primary ms-4 fs-4">  ● Stage III Exam Date  : <span class="text-dark fw-bold">{{admission.exam_date3}}   </span></div>
+          <div class="text-primary ms-4 fs-5">  ● Stage III Exam Date  : <span class="text-dark fw-bold">{{admission.exam_date3}}   </span></div>
     {% endif %}
     
     {% if admission.admit_card_available %}
-           <div class="text-primary ms-4 fs-4">● Admit Card   : <span class="text-dark fw-bold">{{admission.admit_card_available}}  </span></div>
+           <div class="text-primary ms-4 fs-5">● Admit Card   : <span class="text-dark fw-bold">{{admission.admit_card_available}}  </span></div>
            {% endif %}
 
            {% if admission.answerkey_available_date %}
-            <div class="text-primary ms-4 fs-4">● Answer Key    : <span class="text-dark fw-bold"> {{admission.answerkey_available_date}}   </span></div>
+            <div class="text-primary ms-4 fs-5">● Answer Key    : <span class="text-dark fw-bold"> {{admission.answerkey_available_date}}   </span></div>
             {% endif %}
 
             {% if admission.result_available %}
-             <div class="text-primary ms-4 fs-4">● Result   : <span class="text-dark fw-bold"> {{admission.result_available}}   </span></div>
+             <div class="text-primary ms-4 fs-5">● Result   : <span class="text-dark fw-bold"> {{admission.result_available}}   </span></div>
             {% endif %}
   
             {% if admission.final_result_available %}
-              <div class="text-primary ms-4 fs-4">● Final Result : <span class="text-dark fw-bold"> {{admission.final_result_available}}   </span></div>
+              <div class="text-primary ms-4 fs-5">● Final Result : <span class="text-dark fw-bold"> {{admission.final_result_available}}   </span></div>
             {% endif %}
  
           {% if admission.applecation_fee %}
@@ -501,16 +509,16 @@
         {{admission.applecation_fee|safe}}
         {% endif %}
         
-        <div class="text-primary ms-3 fs-3 mt-4">
-            <span class="text-danger fs-3">Note:</span> 
+        <div class="text-primary ms-3 fs-4 mt-4">
+            <span class="text-danger fs-4">Note:</span> 
             Candidates can deposit the exam fee through bank challan or online payment mode
         </div>
         <br>
         
-        {% if admission.vacancy_details %}
+        {% if admission.admission_details %}
         <div class="text-success fs-3 mb-3 text-center bg-primary text-white fw-bold text-center-mobile">
             <i class="fas fa-file-alt text-white"></i> Vacancy Details</div>
-        {{admission.vacancy_details|safe}}
+        {{admission.admission_details|safe}}
         {% endif %}
         <br>
         
@@ -526,8 +534,8 @@
         {{admission.selection_process|safe}}
         {% endif %}
         
-        <div class="text-danger h3 ms-3">
-            <span>Note:</span> The selection of the candidate will be based on all Three exams.
+        <div class="text-primary h4 ms-3">
+            <span class="text-danger">Note:</span> The selection of the candidate will be based on all Three exams.
         </div>
         <br>
         
@@ -565,6 +573,10 @@
 
   {% if admission.anserkeyII_link %}
    <a href="{{admission.answerkeyII_link}}" class="text-white"><div class="text-text-white mt-3 fs-3 text-center bg-primary p-2 fw-bold">    <i class="fas fa-key"></i>  &nbsp;&nbsp;Answer Key Phase II </div>
+ </a> {% endif %}
+
+   {% if admission.download_course_list_link %}
+   <a href="{{admission.download_course_list_link}}" class="text-white"><div class="text-text-white mt-3 fs-3 text-center bg-primary p-2 fw-bold">    <i class="fas fa-key"></i>  &nbsp;&nbsp;Download Course List </div>
  </a> {% endif %}
 
   {% if admission.result_link %}

@@ -7,5 +7,6 @@ Allow: /
 User-Agent: Mediapartners-Google
 Allow: /
 
-Sitemap: https://www.wifiresult.xyz/sitemap.xml
+Sitemap: {{ request.scheme }}://{{ request.get_host }}/sitemap.xml
 Disallow: /404.shtml
+

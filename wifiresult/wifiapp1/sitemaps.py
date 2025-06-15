@@ -1,6 +1,6 @@
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
-from .models import Result, Job
+from .models import Result, Job, Admission, Answerkey, Syllabus, Admitcard
 
 class StaticViewSitemap(Sitemap):
     changefreq = "daily"
@@ -36,6 +36,46 @@ class JobSitemap(Sitemap):
 
     def items(self):
         return Job.objects.filter(active=True)
+
+    def location(self, obj):
+        return obj.get_absolute_url()
+    
+class AdmissionSitemap(Sitemap):
+    changefreq = "weekly"
+    priority = 0.8000
+
+    def items(self):
+        return Admission.objects.filter(active=True)
+
+    def location(self, obj):
+        return obj.get_absolute_url()
+    
+class AnswerkeySitemap(Sitemap):
+    changefreq = "weekly"
+    priority = 0.8000
+
+    def items(self):
+        return Answerkey.objects.filter(active=True)
+
+    def location(self, obj):
+        return obj.get_absolute_url()
+    
+class SyllabusSitemap(Sitemap):
+    changefreq = "weekly"
+    priority = 0.8000
+
+    def items(self):
+        return Syllabus.objects.filter(active=True)
+
+    def location(self, obj):
+        return obj.get_absolute_url()
+    
+class AdmitcardSitemap(Sitemap):
+    changefreq = "weekly"
+    priority = 0.8000
+
+    def items(self):
+        return Admitcard.objects.filter(active=True)
 
     def location(self, obj):
         return obj.get_absolute_url()

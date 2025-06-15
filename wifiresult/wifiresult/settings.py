@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'wifiapp1',   
     'django.contrib.sitemaps',
-    # 'tinymce',
     'ckeditor',
     
     
